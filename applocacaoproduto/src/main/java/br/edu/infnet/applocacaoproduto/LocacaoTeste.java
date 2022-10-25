@@ -13,25 +13,28 @@ public class LocacaoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		Locacao p1 = new Locacao();		
-		p1.inicio = LocalDateTime.now();
-		p1.fim = LocalDateTime.now().plusDays(2);
-		p1.descricao = "Primeira locação";
-		p1.processada = true;
-		System.out.println("Locacao - " + p1);
 		
-		Locacao p2 = new Locacao();
-		p2.inicio = LocalDateTime.now();
-		p2.fim = LocalDateTime.now().plusDays(2);
-		p2.descricao = "Segunda locação";
-		p2.processada = true;
-		System.out.println("Locacao - " + p2);
+		System.out.println("## Cadastramento de Locação ##");
 		
-		Locacao p3 = new Locacao();
-		p3.inicio = LocalDateTime.now();
-		p3.fim = LocalDateTime.now().plusDays(2);
-		p3.descricao = "Terceira locação";
-		p3.processada = true;
-		System.out.println("Locacao - " + p3);
+		Locacao l1 = new Locacao();		
+		l1.setInicio(LocalDateTime.now());
+		l1.setFim(LocalDateTime.now().plusDays(2));
+		l1.setDescricao("Primeira locação");
+		l1.setProcessada(true);
+		System.out.println("> " + l1);
+		
+		Locacao l2 = new Locacao();
+		l2.setInicio(LocalDateTime.now());
+		l2.setFim(LocalDateTime.now().plusDays(2));
+		l2.setDescricao("Segunda locação");
+		l2.setProcessada(false);
+		System.out.println("> " + l2);
+		
+		Locacao l3 = new Locacao();
+		l3.setInicio(LocalDateTime.now());
+		l3.setFim(LocalDateTime.now().plusDays(2));
+		l3.setDescricao("Terceira locação");
+		l3.setProcessada(true);
+		System.out.println("> " + l3);
 	}
 }

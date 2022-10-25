@@ -11,22 +11,25 @@ public class LocatarioTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
+		
+		System.out.println("## Cadastramento de Locatário ##");
+		
 		Locatario l1 = new Locatario();		
-		l1.cpf = "12312312312";
-		l1.email = "locatario@primeiro.com";
-		l1.nome = "Primeiro locatario";
-		System.out.println("Locatario - " + l1);
+		l1.setCpf("12312312312");
+		l1.setEmail("locatario@primeiro.com");
+		l1.setNome("Primeiro locatario");
+		System.out.println("> " + l1);
 		
 		Locatario l2 = new Locatario();		
-		l2.cpf = "23423423423";
-		l2.email = "locatario@segundo.com";
-		l2.nome = "Segundo locatario";
-		System.out.println("Locatario - " + l2);
+		l2.setCpf("23423423423");
+		l2.setEmail("locatario@segundo.com");
+		l2.setNome("Segundo locatario");
+		System.out.println("> " + l2);
 		
 		Locatario l3 = new Locatario();		
-		l3.cpf = "34534534534";
-		l3.email = "locatario@terceiro.com";
-		l3.nome = "Terceiro locatario";
-		System.out.println("Locatario - " + l3);
+		l3.setCpf("34534534534");
+		l3.setEmail("locatario@terceiro.com");
+		l3.setNome("Terceiro locatario");
+		System.out.println("> " + l3);
 	}
 }

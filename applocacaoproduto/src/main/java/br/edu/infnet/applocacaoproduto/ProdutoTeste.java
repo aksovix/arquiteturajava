@@ -4,36 +4,49 @@ import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.applocacaoproduto.model.domain.Produto;
+import br.edu.infnet.applocacaoproduto.model.domain.Celular;
+import br.edu.infnet.applocacaoproduto.model.domain.Computador;
+import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-
+		
+		System.out.println("## Cadastramento de Produto ##");
+		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
-		Produto p1 = new Produto();		
-		p1.codigo = 123;
-		p1.marca = "Volkswagen";
-		p1.modelo = "Gol";
-		p1.valor = 125.00f;
-		System.out.println("Produto - " + p1);
-		
+		Veiculo p1 = new Veiculo();
+		p1.setCodigo(123);
+		p1.setMarca("Volkswagen");
+		p1.setModelo("Gol 1.6 MSI Flex Aut");
+		p1.setValor(110.0f);
+		p1.setAnoModelo("2022/2023");
+		p1.setCilindrada(1.6f);
+		p1.setPortaMalas(285);
+		System.out.println("> " + p1);
+
 		// Samsung Galaxy S20 FE
-		Produto p2 = new Produto();
-		p2.codigo = 123;
-		p2.marca = "Samsung";
-		p2.modelo = "Galaxy S20 FE";
-		p2.valor = 30.0f;
-		System.out.println("Produto - " + p2);
-		
+		Celular p2 = new Celular();
+		p2.setCodigo(123);
+		p2.setMarca("Samsung");
+		p2.setModelo("Galaxy S20 FE");
+		p2.setValor(30.0f);
+		p2.setPeso(190);
+		p2.setBateria(4500);
+		p2.setTela(6.5f);
+		System.out.println("> " + p2);
+
 		// Dell Notebook Inspiron 15
-		Produto p3 = new Produto();
-		p3.codigo = 123;
-		p3.marca = "Dell";
-		p3.modelo = "Notebook Inspiron 15";
-		p3.valor = 50.0f;
-		System.out.println("Produto - " + p3);
+		Computador p3 = new Computador();
+		p3.setCodigo(123);
+		p3.setMarca("Dell");
+		p3.setModelo("Notebook Inspiron 15");
+		p3.setValor(50.0f);
+		p3.setMemoria(16);
+		p3.setCpu(4.5f);
+		p3.setDisco(256);
+		System.out.println("> " + p3);
 	}
 }
