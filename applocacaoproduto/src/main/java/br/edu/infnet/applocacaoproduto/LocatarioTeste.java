@@ -2,10 +2,12 @@ package br.edu.infnet.applocacaoproduto;
 
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
 
+@Order(2)
 @Component
 public class LocatarioTeste implements ApplicationRunner {
 

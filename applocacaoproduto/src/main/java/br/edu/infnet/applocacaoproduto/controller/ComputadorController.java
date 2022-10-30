@@ -1,20 +1,18 @@
-package br.edu.infnet.applocacaoproduto;
+package br.edu.infnet.applocacaoproduto.controller;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import java.util.Arrays;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 
-@Order(6)
-@Component
-public class ComputadorTeste implements ApplicationRunner {
-
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		
-		System.out.println("## Cadastramento de Computador ##");
+@Controller
+public class ComputadorController {
+	
+	@GetMapping(value = "/computador/lista")
+	public String telaLista(Model model) {
 		
 		// Dell Notebook Inspiron 15
 		Computador c1 = new Computador();
@@ -25,7 +23,6 @@ public class ComputadorTeste implements ApplicationRunner {
 		c1.setMemoria(16);
 		c1.setCpu(4.5f);
 		c1.setDisco(256);
-		System.out.println("> " + c1);
 		
 		// Itautec I5 3470 3ªgeração 120gbssd 16gb 3.20ghz
 		Computador c2 = new Computador();
@@ -36,7 +33,6 @@ public class ComputadorTeste implements ApplicationRunner {
 		c2.setMemoria(16);
 		c2.setCpu(3.2f);
 		c2.setDisco(120);
-		System.out.println("> " + c2);
 		
 		// ProDesk HP 400 G6 Mini
 		Computador c3 = new Computador();
@@ -47,6 +43,9 @@ public class ComputadorTeste implements ApplicationRunner {
 		c3.setMemoria(8);
 		c3.setCpu(2.0f);
 		c3.setDisco(256);
-		System.out.println("> " + c3);
+
+		model.addAttribute("listagem", Arrays.asList(c1, c2, c3));
+
+		return "computador/lista";
 	}
 }

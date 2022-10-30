@@ -1,6 +1,7 @@
 package br.edu.infnet.applocacaoproduto.model.domain;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 public class Locacao {
 
@@ -8,6 +9,19 @@ public class Locacao {
 	private LocalDateTime fim;
 	private String descricao;
 	private boolean processada;
+	private Locatario locatario;
+	private List<Produto> produtos;
+	
+	public Locacao() {
+		inicio = LocalDateTime.now();
+		fim = LocalDateTime.now().plusDays(3);
+		processada = false;
+	}
+	
+	public Locacao(Locatario locatario) {
+		this();
+		this.locatario = locatario;
+	}
 	
 	public LocalDateTime getInicio() {
 		return inicio;
@@ -41,8 +55,24 @@ public class Locacao {
 		this.processada = processada;
 	}
 
+	public Locatario getLocatario() {
+		return locatario;
+	}
+
+	public void setLocatario(Locatario locatario) {
+		this.locatario = locatario;
+	}
+
+	public List<Produto> getProdutos() {
+		return produtos;
+	}
+
+	public void setProdutos(List<Produto> produtos) {
+		this.produtos = produtos;
+	}
+
 	@Override
 	public String toString() {
-		return inicio + ";" + fim + ";" + descricao + ";" + processada;
+		return descricao + ";" + inicio + ";" + fim + ";" +  processada + ";" + locatario + ";" + produtos.size();
 	}
 }

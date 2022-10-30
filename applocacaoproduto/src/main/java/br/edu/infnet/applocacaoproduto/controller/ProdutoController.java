@@ -1,22 +1,20 @@
-package br.edu.infnet.applocacaoproduto;
+package br.edu.infnet.applocacaoproduto.controller;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import java.util.Arrays;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 
-@Order(3)
-@Component
-public class ProdutoTeste implements ApplicationRunner {
-
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		
-		System.out.println("## Cadastramento de Produto ##");
+@Controller
+public class ProdutoController {
+	
+	@GetMapping(value = "/produto/lista")
+	public String telaLista(Model model) {
 		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
 		Veiculo p1 = new Veiculo();
@@ -27,7 +25,6 @@ public class ProdutoTeste implements ApplicationRunner {
 		p1.setAnoModelo("2022/2023");
 		p1.setCilindrada(1.6f);
 		p1.setPortaMalas(285);
-		System.out.println("> " + p1);
 
 		// Samsung Galaxy S20 FE
 		Celular p2 = new Celular();
@@ -38,7 +35,6 @@ public class ProdutoTeste implements ApplicationRunner {
 		p2.setPeso(190);
 		p2.setBateria(4500);
 		p2.setTela(6.5f);
-		System.out.println("> " + p2);
 
 		// Dell Notebook Inspiron 15
 		Computador p3 = new Computador();
@@ -49,6 +45,9 @@ public class ProdutoTeste implements ApplicationRunner {
 		p3.setMemoria(16);
 		p3.setCpu(4.5f);
 		p3.setDisco(256);
-		System.out.println("> " + p3);
+
+		model.addAttribute("listagem", Arrays.asList(p1, p2, p3));
+
+		return "produto/lista";
 	}
 }

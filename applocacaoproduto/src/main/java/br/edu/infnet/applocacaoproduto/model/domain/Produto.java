@@ -1,6 +1,6 @@
 package br.edu.infnet.applocacaoproduto.model.domain;
 
-public class Produto {
+public abstract class Produto {
 
 	private int codigo;
 	private String marca;

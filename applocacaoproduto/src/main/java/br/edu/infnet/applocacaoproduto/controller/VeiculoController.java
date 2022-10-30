@@ -1,20 +1,18 @@
-package br.edu.infnet.applocacaoproduto;
+package br.edu.infnet.applocacaoproduto.controller;
 
-import org.springframework.boot.ApplicationArguments;
-import org.springframework.boot.ApplicationRunner;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+import java.util.Arrays;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 
-@Order(4)
-@Component
-public class VeiculoTeste implements ApplicationRunner {
-
-	@Override
-	public void run(ApplicationArguments args) throws Exception {
-		
-		System.out.println("## Cadastramento de Veículo ##");
+@Controller
+public class VeiculoController {
+	
+	@GetMapping(value = "/veiculo/lista")
+	public String telaLista(Model model) {
 		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
 		Veiculo v1 = new Veiculo();
@@ -25,7 +23,6 @@ public class VeiculoTeste implements ApplicationRunner {
 		v1.setAnoModelo("2022/2023");
 		v1.setCilindrada(1.6f);
 		v1.setPortaMalas(285);
-		System.out.println("> " + v1);
 		
 		// Chevrolet Prisma 1.4 MPFI LT 8v Flex 4P Manual
 		Veiculo v2 = new Veiculo();	
@@ -34,9 +31,8 @@ public class VeiculoTeste implements ApplicationRunner {
 		v2.setModelo("Prisma 1.4 MPFI LT 8v Flex 4P Manual");
 		v2.setValor(120.0f);
 		v2.setAnoModelo("2022/2023");
-		v2.setCilindrada(1.3f);
+		v2.setCilindrada(1.4f);
 		v2.setPortaMalas(519);
-		System.out.println("> " + v2);
 		
 		// Fiat Fastback 1.3 Turbo 270 Flex Limited Edition AT6
 		Veiculo v3 = new Veiculo();	
@@ -47,6 +43,9 @@ public class VeiculoTeste implements ApplicationRunner {
 		v3.setAnoModelo("2022/2023");
 		v3.setCilindrada(1.3f);
 		v3.setPortaMalas(519);
-		System.out.println("> " + v3);
+
+		model.addAttribute("listagem", Arrays.asList(v1, v2, v3));
+
+		return "veiculo/lista";
 	}
 }
