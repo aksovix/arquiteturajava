@@ -2,10 +2,19 @@ package br.edu.infnet.applocacaoproduto.model.domain;
 
 public abstract class Produto {
 
+	private Integer id;
 	private int codigo;
 	private String marca;
 	private String modelo;
 	private float valor;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	public int getCodigo() {
 		return codigo;
@@ -41,6 +50,6 @@ public abstract class Produto {
 
 	@Override
 	public String toString() {
-		return codigo + ";" + marca + ";" + modelo+ ";" + valor;
+		return id + ";" + codigo + ";" + marca + ";" + modelo+ ";" + valor;
 	}
 }

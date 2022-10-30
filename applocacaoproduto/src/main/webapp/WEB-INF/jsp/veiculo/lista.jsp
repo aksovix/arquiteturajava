@@ -14,6 +14,7 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+	        		<th>ID</th>
 					<th>Código</th>
 					<th>Marca</th>
 					<th>Modelo</th>
@@ -21,11 +22,13 @@
 					<th>Ano/Modelo</th>
 					<th>Cilindrada</th>
 					<th>Porta-Malas</th>
+	        		<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="item" items="${listagem}">
 					<tr>
+						<td>${item.id}</td>
 						<td>${item.codigo}</td>
 						<td>${item.marca}</td>
 						<td>${item.modelo}</td>
@@ -33,6 +36,7 @@
 						<td>${item.anoModelo}</td>
 						<td>${item.cilindrada}</td>
 						<td>${item.portaMalas}</td>
+		        		<td><a href="/veiculo/${item.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

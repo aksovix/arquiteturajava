@@ -2,9 +2,18 @@ package br.edu.infnet.applocacaoproduto.model.domain;
 
 public class Locatario {
 
+	private Integer id;
 	private String nome;
 	private String cpf;
 	private String email;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 	
 	public String getNome() {
 		return nome;

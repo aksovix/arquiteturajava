@@ -14,17 +14,21 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+	          	    <th>ID</th>
 					<th>Nome</th>
 					<th>CPF</th>
 					<th>Email</th>
+	        		<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="item" items="${listagem}">
 					<tr>
+						<td>${item.id}</td>
 						<td>${item.nome}</td>
 						<td>${item.cpf}</td>
 						<td>${item.email}</td>
+		        		<td><a href="/locatario/${item.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

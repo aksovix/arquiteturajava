@@ -14,19 +14,27 @@
 		<table class="table table-striped">
 			<thead>
 				<tr>
+	        		<th>ID</th>
 					<th>Início</th>
 					<th>Fim</th>
 					<th>Descrição</th>
 					<th>Processada</th>
+					<th>Locatário</th>
+					<th>Produtos</th>
+	        		<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="item" items="${listagem}">
 					<tr>
+						<td>${item.id}</td>
 						<td>${item.inicio}</td>
 						<td>${item.fim}</td>
 						<td>${item.descricao}</td>
 						<td>${item.processada}</td>
+				        <td>${item.locatario.nome}</td>
+				        <td>${item.produtos.size()}</td>
+		        		<td><a href="/locacao/${item.id}/excluir">excluir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

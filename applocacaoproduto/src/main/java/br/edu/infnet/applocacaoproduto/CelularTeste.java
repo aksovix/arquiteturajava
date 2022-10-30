@@ -5,6 +5,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.applocacaoproduto.controller.CelularController;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 
 @Order(5)
@@ -25,7 +26,7 @@ public class CelularTeste implements ApplicationRunner {
 		c1.setPeso(190);
 		c1.setBateria(4500);
 		c1.setTela(6.5f);
-		System.out.println("> " + c1);
+		CelularController.incluir(c1);
 		
 		// Huawei Mate 50 Pro
 		Celular c2 = new Celular();
@@ -36,7 +37,7 @@ public class CelularTeste implements ApplicationRunner {
 		c2.setPeso(205);
 		c2.setBateria(4700);
 		c2.setTela(6.74f);
-		System.out.println("> " + c2);
+		CelularController.incluir(c2);
 		
 		// Apple iPhone 14 Pro Max
 		Celular c3 = new Celular();
@@ -47,6 +48,6 @@ public class CelularTeste implements ApplicationRunner {
 		c3.setPeso(240);
 		c3.setBateria(4323);
 		c3.setTela(6.7f);
-		System.out.println("> " + c3);
+		CelularController.incluir(c3);
 	}
 }

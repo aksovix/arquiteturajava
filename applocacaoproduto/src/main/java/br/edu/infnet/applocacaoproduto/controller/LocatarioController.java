@@ -1,36 +1,50 @@
 package br.edu.infnet.applocacaoproduto.controller;
 
-import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
 
 @Controller
 public class LocatarioController {
+
+	private static Map<Integer, Locatario> mapa = new HashMap<Integer, Locatario>();	
+	private static Integer id = 1;
+
+	public static void incluir(Locatario locatario) {
+		locatario.setId(id++);
+		mapa.put(locatario.getId(), locatario);
+		
+		System.out.println("> " + locatario);
+	}
 	
+	public static void excluir(Integer id) {
+		mapa.remove(id);
+	}
+	
+	public static Collection<Locatario> obterLista(){
+		return mapa.values();
+	}
+		
 	@GetMapping(value = "/locatario/lista")
 	public String telaLista(Model model) {
-		
-		Locatario l1 = new Locatario();		
-		l1.setCpf("12312312312");
-		l1.setEmail("locatario@primeiro.com");
-		l1.setNome("Primeiro locatario");
-		
-		Locatario l2 = new Locatario();		
-		l2.setCpf("23423423423");
-		l2.setEmail("locatario@segundo.com");
-		l2.setNome("Segundo locatario");
-		
-		Locatario l3 = new Locatario();		
-		l3.setCpf("34534534534");
-		l3.setEmail("locatario@terceiro.com");
-		l3.setNome("Terceiro locatario");
-
-		model.addAttribute("listagem", Arrays.asList(l1, l2, l3));
+		model.addAttribute("listagem", obterLista());
 
 		return "locatario/lista";
 	}
+	
+	@GetMapping(value = "/locatario/{id}/excluir")
+	public String exclusao(@PathVariable Integer id) {
+
+		excluir(id);
+		
+		return "redirect:/locatario/lista";
+	}
+	
 }

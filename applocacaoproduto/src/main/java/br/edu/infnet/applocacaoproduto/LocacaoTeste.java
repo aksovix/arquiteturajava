@@ -7,6 +7,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import br.edu.infnet.applocacaoproduto.controller.LocacaoController;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.domain.Locacao;
@@ -62,7 +63,7 @@ public class LocacaoTeste implements ApplicationRunner {
 		l1.setDescricao("Primeira locação");
 		l1.setProcessada(true);
 		l1.setProdutos(Arrays.asList(veiculo));
-		System.out.println("> " + l1);
+		LocacaoController.incluir(l1);
 		
 		// Locação 2
 		locatario = new Locatario();
@@ -75,7 +76,7 @@ public class LocacaoTeste implements ApplicationRunner {
 		l2.setProcessada(false);
 		l2.setLocatario(locatario);
 		l2.setProdutos(Arrays.asList(veiculo, celular));
-		System.out.println("> " + l2);
+		LocacaoController.incluir(l2);
 		
 		// Locação 3
 		locatario = new Locatario();	
@@ -87,6 +88,6 @@ public class LocacaoTeste implements ApplicationRunner {
 		l3.setDescricao("Terceira locação");
 		l3.setLocatario(locatario);
 		l3.setProdutos(Arrays.asList(veiculo, celular, computador));
-		System.out.println("> " + l3);
+		LocacaoController.incluir(l3);
 	}
 }

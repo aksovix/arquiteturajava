@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Locacao {
 
+	private Integer id;
 	private LocalDateTime inicio;
 	private LocalDateTime fim;
 	private String descricao;
@@ -21,6 +22,14 @@ public class Locacao {
 	public Locacao(Locatario locatario) {
 		this();
 		this.locatario = locatario;
+	}
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	public LocalDateTime getInicio() {
