@@ -1,18 +1,22 @@
 package br.edu.infnet.applocacaoproduto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.applocacaoproduto.controller.ProdutoController;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
+import br.edu.infnet.applocacaoproduto.model.service.ProdutoService;
 
 @Order(3)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
+	
+	@Autowired
+	private ProdutoService service;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -28,7 +32,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		p1.setAnoModelo("2022/2023");
 		p1.setCilindrada(1.6f);
 		p1.setPortaMalas(285);
-		ProdutoController.incluir(p1);
+		service.incluir(p1);
 
 		// Samsung Galaxy S20 FE
 		Celular p2 = new Celular();
@@ -39,7 +43,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		p2.setPeso(190);
 		p2.setBateria(4500);
 		p2.setTela(6.5f);
-		ProdutoController.incluir(p2);
+		service.incluir(p2);
 
 		// Dell Notebook Inspiron 15
 		Computador p3 = new Computador();
@@ -50,6 +54,6 @@ public class ProdutoTeste implements ApplicationRunner {
 		p3.setMemoria(16);
 		p3.setCpu(4.5f);
 		p3.setDisco(256);
-		ProdutoController.incluir(p3);
+		service.incluir(p3);
 	}
 }

@@ -2,21 +2,25 @@ package br.edu.infnet.applocacaoproduto;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.applocacaoproduto.controller.LocacaoController;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.domain.Locacao;
 import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
+import br.edu.infnet.applocacaoproduto.model.service.LocacaoService;
 
 @Order(1)
 @Component
 public class LocacaoTeste implements ApplicationRunner {
+	
+	@Autowired
+	private LocacaoService service;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -63,7 +67,7 @@ public class LocacaoTeste implements ApplicationRunner {
 		l1.setDescricao("Primeira locação");
 		l1.setProcessada(true);
 		l1.setProdutos(Arrays.asList(veiculo));
-		LocacaoController.incluir(l1);
+		service.incluir(l1);
 		
 		// Locação 2
 		locatario = new Locatario();
@@ -76,7 +80,7 @@ public class LocacaoTeste implements ApplicationRunner {
 		l2.setProcessada(false);
 		l2.setLocatario(locatario);
 		l2.setProdutos(Arrays.asList(veiculo, celular));
-		LocacaoController.incluir(l2);
+		service.incluir(l2);
 		
 		// Locação 3
 		locatario = new Locatario();	
@@ -88,6 +92,6 @@ public class LocacaoTeste implements ApplicationRunner {
 		l3.setDescricao("Terceira locação");
 		l3.setLocatario(locatario);
 		l3.setProdutos(Arrays.asList(veiculo, celular, computador));
-		LocacaoController.incluir(l3);
+		service.incluir(l3);
 	}
 }

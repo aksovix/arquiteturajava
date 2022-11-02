@@ -1,16 +1,20 @@
 package br.edu.infnet.applocacaoproduto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.applocacaoproduto.controller.ComputadorController;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
+import br.edu.infnet.applocacaoproduto.model.service.ComputadorService;
 
 @Order(6)
 @Component
 public class ComputadorTeste implements ApplicationRunner {
+	
+	@Autowired
+	private ComputadorService service;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -26,7 +30,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		c1.setMemoria(16);
 		c1.setCpu(4.5f);
 		c1.setDisco(256);
-		ComputadorController.incluir(c1);
+		service.incluir(c1);
 		
 		// Itautec I5 3470 3ªgeração 120gbssd 16gb 3.20ghz
 		Computador c2 = new Computador();
@@ -37,7 +41,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		c2.setMemoria(16);
 		c2.setCpu(3.2f);
 		c2.setDisco(120);
-		ComputadorController.incluir(c2);
+		service.incluir(c2);
 		
 		// ProDesk HP 400 G6 Mini
 		Computador c3 = new Computador();
@@ -48,6 +52,6 @@ public class ComputadorTeste implements ApplicationRunner {
 		c3.setMemoria(8);
 		c3.setCpu(2.0f);
 		c3.setDisco(256);
-		ComputadorController.incluir(c3);
+		service.incluir(c3);
 	}
 }

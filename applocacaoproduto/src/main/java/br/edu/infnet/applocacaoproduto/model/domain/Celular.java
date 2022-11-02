@@ -1,5 +1,10 @@
 package br.edu.infnet.applocacaoproduto.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_CELULAR")
 public class Celular extends Produto {
 
 	private int peso;

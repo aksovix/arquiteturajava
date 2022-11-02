@@ -1,7 +1,17 @@
 package br.edu.infnet.applocacaoproduto.model.domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "TB_LOCATARIO")
 public class Locatario {
 
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Integer id;
 	private String nome;
 	private String cpf;

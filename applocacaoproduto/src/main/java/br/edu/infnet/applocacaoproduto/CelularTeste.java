@@ -1,16 +1,20 @@
 package br.edu.infnet.applocacaoproduto;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import br.edu.infnet.applocacaoproduto.controller.CelularController;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
+import br.edu.infnet.applocacaoproduto.model.service.CelularService;
 
 @Order(5)
 @Component
 public class CelularTeste implements ApplicationRunner {
+	
+	@Autowired
+	private CelularService service;
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -26,7 +30,7 @@ public class CelularTeste implements ApplicationRunner {
 		c1.setPeso(190);
 		c1.setBateria(4500);
 		c1.setTela(6.5f);
-		CelularController.incluir(c1);
+		service.incluir(c1);
 		
 		// Huawei Mate 50 Pro
 		Celular c2 = new Celular();
@@ -37,7 +41,7 @@ public class CelularTeste implements ApplicationRunner {
 		c2.setPeso(205);
 		c2.setBateria(4700);
 		c2.setTela(6.74f);
-		CelularController.incluir(c2);
+		service.incluir(c2);
 		
 		// Apple iPhone 14 Pro Max
 		Celular c3 = new Celular();
@@ -48,6 +52,6 @@ public class CelularTeste implements ApplicationRunner {
 		c3.setPeso(240);
 		c3.setBateria(4323);
 		c3.setTela(6.7f);
-		CelularController.incluir(c3);
+		service.incluir(c3);
 	}
 }

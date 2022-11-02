@@ -1,40 +1,22 @@
 package br.edu.infnet.applocacaoproduto.controller;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
+import br.edu.infnet.applocacaoproduto.model.service.LocatarioService;
 
 @Controller
 public class LocatarioController {
 
-	private static Map<Integer, Locatario> mapa = new HashMap<Integer, Locatario>();	
-	private static Integer id = 1;
+	@Autowired
+	private LocatarioService service;
 
-	public static void incluir(Locatario locatario) {
-		locatario.setId(id++);
-		mapa.put(locatario.getId(), locatario);
-		
-		System.out.println("> " + locatario);
-	}
-	
-	public static void excluir(Integer id) {
-		mapa.remove(id);
-	}
-	
-	public static Collection<Locatario> obterLista(){
-		return mapa.values();
-	}
-		
 	@GetMapping(value = "/locatario/lista")
 	public String telaLista(Model model) {
-		model.addAttribute("listagem", obterLista());
+		model.addAttribute("listagem", service.obterLista());
 
 		return "locatario/lista";
 	}
@@ -42,7 +24,7 @@ public class LocatarioController {
 	@GetMapping(value = "/locatario/{id}/excluir")
 	public String exclusao(@PathVariable Integer id) {
 
-		excluir(id);
+		service.excluir(id);
 		
 		return "redirect:/locatario/lista";
 	}

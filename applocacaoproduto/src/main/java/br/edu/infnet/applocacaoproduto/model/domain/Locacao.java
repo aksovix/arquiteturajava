@@ -3,8 +3,18 @@ package br.edu.infnet.applocacaoproduto.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+//@Entity
+//@Table(name = "TB_LOCACAO")
 public class Locacao {
 
+//	@GeneratedValue(strategy = GenerationType.IDENTITY)
+//	@Id
 	private Integer id;
 	private LocalDateTime inicio;
 	private LocalDateTime fim;
