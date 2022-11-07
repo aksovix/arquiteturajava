@@ -3,11 +3,7 @@ package br.edu.infnet.applocacaoproduto.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.Transient;
 
 //@Entity
 //@Table(name = "TB_LOCACAO")
@@ -15,12 +11,28 @@ public class Locacao {
 
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
 //	@Id
+//	@Column(name = "LOA_ID", nullable = false)
 	private Integer id;
+	
+//	@Column(name = "LOA_INICIO", nullable = false)
 	private LocalDateTime inicio;
+	
+//	@Column(name = "LOA_FIM", nullable = false)
 	private LocalDateTime fim;
+	
+//	@Column(name = "LOA_DESCRICAO", nullable = false)
 	private String descricao;
+	
+//	@Column(name = "LOA_PROCESSADA", nullable = false)
 	private boolean processada;
+	
+//	@ManyToOne
+//	@JoinColumn(name="loc_id", nullable=false)
+	@Transient
 	private Locatario locatario;
+	
+//	@OneToMany(mappedBy="locacao")
+	@Transient
 	private List<Produto> produtos;
 	
 	public Locacao() {

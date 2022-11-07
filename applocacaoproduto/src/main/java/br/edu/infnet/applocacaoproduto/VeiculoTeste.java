@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 import br.edu.infnet.applocacaoproduto.model.service.VeiculoService;
 
-@Order(4)
+@Order(5)
 @Component
 public class VeiculoTeste implements ApplicationRunner {
 
@@ -23,7 +23,7 @@ public class VeiculoTeste implements ApplicationRunner {
 		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
 		Veiculo v1 = new Veiculo();
-		v1.setCodigo(123);
+		v1.setCodigo(100);
 		v1.setMarca("Volkswagen");
 		v1.setModelo("Gol 1.6 MSI Flex Aut");
 		v1.setValor(110.0f);
@@ -34,7 +34,7 @@ public class VeiculoTeste implements ApplicationRunner {
 		
 		// Chevrolet Prisma 1.4 MPFI LT 8v Flex 4P Manual
 		Veiculo v2 = new Veiculo();	
-		v2.setCodigo(456);
+		v2.setCodigo(110);
 		v2.setMarca("Chevrolet");
 		v2.setModelo("Prisma 1.4 MPFI LT 8v Flex 4P Manual");
 		v2.setValor(120.0f);
@@ -45,7 +45,7 @@ public class VeiculoTeste implements ApplicationRunner {
 		
 		// Fiat Fastback 1.3 Turbo 270 Flex Limited Edition AT6
 		Veiculo v3 = new Veiculo();	
-		v3.setCodigo(789);
+		v3.setCodigo(120);
 		v3.setMarca("Fiat");
 		v3.setModelo("Fastback 1.3 Turbo 270 Flex Limited Edition AT6");
 		v3.setValor(240.0f);

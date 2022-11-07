@@ -1,38 +1,39 @@
 package br.edu.infnet.applocacaoproduto.model.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 @Entity
-@Table(name = "TB_LOCATARIO")
-public class Locatario {
+@Table(name = "TB_USUARIO")
+public class Usuario {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "LOC_ID", nullable = false)
+	@Column(name = "USU_ID", nullable = false)
 	private Integer id;
 	
-	@Column(name = "LOC_NOME", nullable = false)
+	@Column(name = "USU_NOME", nullable = false)
 	private String nome;
 	
-	@Column(name = "LOC_CPF", nullable = false)
-	private String cpf;
-
-	@Column(name = "LOC_EMAIL", nullable = false)
+	@Column(name = "USU_EMAIL", nullable = false)
 	private String email;
-	
-	@ManyToOne
-	@JoinColumn(name = "LOC_ID_USU")
-	private Usuario usuario;
-	
 
+	@Column(name = "USU_SENHA", nullable = false)
+	private String senha;
+	
+	@OneToMany
+	@JoinColumn(name = "LOC_ID_USU")
+	private List<Locatario> locatarios;
+
+	
 	public Integer getId() {
 		return id;
 	}
@@ -40,21 +41,13 @@ public class Locatario {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public String getNome() {
 		return nome;
 	}
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getCpf() {
-		return cpf;
-	}
-
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
 	}
 
 	public String getEmail() {
@@ -65,16 +58,24 @@ public class Locatario {
 		this.email = email;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
+	public List<Locatario> getLocatarios() {
+		return locatarios;
+	}
+
+	public void setLocatarios(List<Locatario> locatarios) {
+		this.locatarios = locatarios;
+	}
+	
 	@Override
 	public String toString() {
-		return id + ";" + nome + ";" + cpf + ";" + email;
+		return id + ";" + nome + ";" + email + ";" + senha;
 	}
 }

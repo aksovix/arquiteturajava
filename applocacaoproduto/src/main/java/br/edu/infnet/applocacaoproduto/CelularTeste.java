@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.service.CelularService;
 
-@Order(5)
+@Order(6)
 @Component
 public class CelularTeste implements ApplicationRunner {
 	
@@ -23,7 +23,7 @@ public class CelularTeste implements ApplicationRunner {
 		
 		// Samsung Galaxy S20 FE
 		Celular c1 = new Celular();
-		c1.setCodigo(123);
+		c1.setCodigo(200);
 		c1.setMarca("Samsung");
 		c1.setModelo("Galaxy S20 FE");
 		c1.setValor(30.0f);
@@ -34,7 +34,7 @@ public class CelularTeste implements ApplicationRunner {
 		
 		// Huawei Mate 50 Pro
 		Celular c2 = new Celular();
-		c2.setCodigo(456);
+		c2.setCodigo(210);
 		c2.setMarca("Huawei");
 		c2.setModelo("Mate 50 Pro");
 		c2.setValor(40.0f);
@@ -45,7 +45,7 @@ public class CelularTeste implements ApplicationRunner {
 		
 		// Apple iPhone 14 Pro Max
 		Celular c3 = new Celular();
-		c3.setCodigo(789);
+		c3.setCodigo(220);
 		c3.setMarca("Apple");
 		c3.setModelo("iPhone 14 Pro Max");
 		c3.setValor(40.0f);

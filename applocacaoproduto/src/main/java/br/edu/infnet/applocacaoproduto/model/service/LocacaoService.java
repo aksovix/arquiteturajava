@@ -11,6 +11,7 @@ import br.edu.infnet.applocacaoproduto.model.domain.Locacao;
 
 @Service
 public class LocacaoService {
+	
 
 	private Map<Integer, Locacao> mapa = new HashMap<Integer, Locacao>();	
 	private Integer id = 1;

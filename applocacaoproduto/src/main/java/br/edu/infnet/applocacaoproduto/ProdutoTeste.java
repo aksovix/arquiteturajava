@@ -11,7 +11,7 @@ import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 import br.edu.infnet.applocacaoproduto.model.service.ProdutoService;
 
-@Order(3)
+@Order(4)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 	
@@ -25,7 +25,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
 		Veiculo p1 = new Veiculo();
-		p1.setCodigo(123);
+		p1.setCodigo(100);
 		p1.setMarca("Volkswagen");
 		p1.setModelo("Gol 1.6 MSI Flex Aut");
 		p1.setValor(110.0f);
@@ -36,7 +36,7 @@ public class ProdutoTeste implements ApplicationRunner {
 
 		// Samsung Galaxy S20 FE
 		Celular p2 = new Celular();
-		p2.setCodigo(123);
+		p2.setCodigo(200);
 		p2.setMarca("Samsung");
 		p2.setModelo("Galaxy S20 FE");
 		p2.setValor(30.0f);
@@ -47,7 +47,7 @@ public class ProdutoTeste implements ApplicationRunner {
 
 		// Dell Notebook Inspiron 15
 		Computador p3 = new Computador();
-		p3.setCodigo(123);
+		p3.setCodigo(300);
 		p3.setMarca("Dell");
 		p3.setModelo("Notebook Inspiron 15");
 		p3.setValor(50.0f);

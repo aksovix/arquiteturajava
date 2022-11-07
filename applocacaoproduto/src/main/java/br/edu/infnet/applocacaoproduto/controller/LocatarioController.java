@@ -5,7 +5,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 
+import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
+import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.service.LocatarioService;
 
 @Controller
@@ -19,6 +23,21 @@ public class LocatarioController {
 		model.addAttribute("listagem", service.obterLista());
 
 		return "locatario/lista";
+	}
+	
+	@GetMapping(value = "/locatario")
+	public String telaCadastro() {
+		return "locatario/cadastro";
+	}
+
+	@PostMapping(value = "/locatario/incluir")
+	public String incluir(Locatario locatario, @SessionAttribute("user") Usuario usuario) {
+		
+		locatario.setUsuario(usuario);
+		
+		service.incluir(locatario);
+		
+		return "redirect:/locatario/lista";
 	}
 	
 	@GetMapping(value = "/locatario/{id}/excluir")

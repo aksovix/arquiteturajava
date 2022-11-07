@@ -15,7 +15,7 @@ import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 import br.edu.infnet.applocacaoproduto.model.service.LocacaoService;
 
-@Order(1)
+@Order(2)
 @Component
 public class LocacaoTeste implements ApplicationRunner {
 	

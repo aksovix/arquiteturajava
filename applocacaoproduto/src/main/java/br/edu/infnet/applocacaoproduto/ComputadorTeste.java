@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
 import br.edu.infnet.applocacaoproduto.model.service.ComputadorService;
 
-@Order(6)
+@Order(7)
 @Component
 public class ComputadorTeste implements ApplicationRunner {
 	
@@ -23,7 +23,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		
 		// Dell Notebook Inspiron 15
 		Computador c1 = new Computador();
-		c1.setCodigo(123);
+		c1.setCodigo(300);
 		c1.setMarca("Dell");
 		c1.setModelo("Notebook Inspiron 15");
 		c1.setValor(50.0f);
@@ -34,7 +34,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		
 		// Itautec I5 3470 3ªgeração 120gbssd 16gb 3.20ghz
 		Computador c2 = new Computador();
-		c2.setCodigo(456);
+		c2.setCodigo(310);
 		c2.setMarca("Itautec");
 		c2.setModelo("I5 3470");
 		c2.setValor(35.0f);
@@ -45,7 +45,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		
 		// ProDesk HP 400 G6 Mini
 		Computador c3 = new Computador();
-		c3.setCodigo(789);
+		c3.setCodigo(320);
 		c3.setMarca("ProDesk");
 		c3.setModelo("HP 400 G6 Mini");
 		c3.setValor(40.0f);
