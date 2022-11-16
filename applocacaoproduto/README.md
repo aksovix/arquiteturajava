@@ -5,14 +5,13 @@ O projeto de locação de produtos oferece uam forma de locação de produtos.
 
 ### 1. Banco de Dados:
 
-* O projeto está utilizando o H2, que é um banco relacional embarcado e está configurado para rodar em memória apenas.
-* Você pode acessar o banco pelo browser após executar a aplicação e ver as tabelas criadas, assim como seus conteúdos.
-* Para isso, acesso o endereço [http://localhost:8081/h2console/](http://localhost:8081/h2console/) e forneça os seguintes dados:
+* O projeto está utilizando o MySQL.
+
 
 ```
-	JDBC URL: jdbc:h2:mem:testdb
-	User Name: sa
-	Password: password
+	JDBC URL: jdbc:mysql://localhost:3306/AppLocacaoProduto?createDatabaseIfNotExist=true&useTimezone=true&serverTimezone=GMT
+	User Name: root
+	Password: root
 ```
 
 ### 2. Testes:
@@ -23,4 +22,6 @@ O projeto de locação de produtos oferece uam forma de locação de produtos.
 
 ### 3. Acesso:
 
-* A aplicação está rodando na porta 8081 e pode ser acessada pelo endereço [http://localhost:8081/](http://localhost:8081/)
+* A aplicação está rodando na porta 8080 e pode ser acessada pelo endereço [http://localhost:8080/](http://localhost:8080/) com a seguinte credencial:<br>
+	** E-mail: admin@admin.com<br>
+	** Senha: 123

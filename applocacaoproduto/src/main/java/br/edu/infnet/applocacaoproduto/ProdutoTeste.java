@@ -8,10 +8,11 @@ import org.springframework.stereotype.Component;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
+import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.domain.Veiculo;
 import br.edu.infnet.applocacaoproduto.model.service.ProdutoService;
 
-@Order(4)
+@Order(3)
 @Component
 public class ProdutoTeste implements ApplicationRunner {
 	
@@ -22,6 +23,9 @@ public class ProdutoTeste implements ApplicationRunner {
 	public void run(ApplicationArguments args) throws Exception {
 		
 		System.out.println("## Cadastramento de Produto ##");
+
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
 		
 		// Volkswagen Gol 1.6 MSI (Flex) (Aut) 2023
 		Veiculo p1 = new Veiculo();
@@ -32,6 +36,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		p1.setAnoModelo("2022/2023");
 		p1.setCilindrada(1.6f);
 		p1.setPortaMalas(285);
+		p1.setUsuario(usuario);
 		service.incluir(p1);
 
 		// Samsung Galaxy S20 FE
@@ -43,6 +48,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		p2.setPeso(190);
 		p2.setBateria(4500);
 		p2.setTela(6.5f);
+		p2.setUsuario(usuario);
 		service.incluir(p2);
 
 		// Dell Notebook Inspiron 15
@@ -54,6 +60,7 @@ public class ProdutoTeste implements ApplicationRunner {
 		p3.setMemoria(16);
 		p3.setCpu(4.5f);
 		p3.setDisco(256);
+		p3.setUsuario(usuario);
 		service.incluir(p3);
 	}
 }

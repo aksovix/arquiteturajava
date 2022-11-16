@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Celular;
+import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.service.CelularService;
 
 @Order(6)
@@ -21,6 +22,9 @@ public class CelularTeste implements ApplicationRunner {
 		
 		System.out.println("## Cadastramento de Celular ##");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		// Samsung Galaxy S20 FE
 		Celular c1 = new Celular();
 		c1.setCodigo(200);
@@ -30,6 +34,7 @@ public class CelularTeste implements ApplicationRunner {
 		c1.setPeso(190);
 		c1.setBateria(4500);
 		c1.setTela(6.5f);
+		c1.setUsuario(usuario);
 		service.incluir(c1);
 		
 		// Huawei Mate 50 Pro
@@ -41,6 +46,7 @@ public class CelularTeste implements ApplicationRunner {
 		c2.setPeso(205);
 		c2.setBateria(4700);
 		c2.setTela(6.74f);
+		c2.setUsuario(usuario);
 		service.incluir(c2);
 		
 		// Apple iPhone 14 Pro Max
@@ -52,6 +58,7 @@ public class CelularTeste implements ApplicationRunner {
 		c3.setPeso(240);
 		c3.setBateria(4323);
 		c3.setTela(6.7f);
+		c3.setUsuario(usuario);
 		service.incluir(c3);
 	}
 }

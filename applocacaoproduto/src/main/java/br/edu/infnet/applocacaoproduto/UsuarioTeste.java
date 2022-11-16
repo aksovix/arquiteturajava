@@ -18,7 +18,6 @@ public class UsuarioTeste implements ApplicationRunner {
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
 		System.out.println("## Cadastramento de Usuários ##");
 		
 		Usuario u1 = new Usuario();

@@ -3,107 +3,57 @@ package br.edu.infnet.applocacaoproduto.model.domain;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import javax.persistence.Transient;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
-//@Entity
-//@Table(name = "TB_LOCACAO")
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name = "TB_LOCACAO")
 public class Locacao {
 
-//	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	@Id
-//	@Column(name = "LOA_ID", nullable = false)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "LOA_ID")
 	private Integer id;
 	
-//	@Column(name = "LOA_INICIO", nullable = false)
+	@DateTimeFormat(iso = ISO.DATE_TIME)
+	@Column(name = "LOA_INICIO")
 	private LocalDateTime inicio;
-	
-//	@Column(name = "LOA_FIM", nullable = false)
+
+	@DateTimeFormat(iso = ISO.DATE_TIME)
+	@Column(name = "LOA_FIM")
 	private LocalDateTime fim;
 	
-//	@Column(name = "LOA_DESCRICAO", nullable = false)
+	@Column(name = "LOA_DESCRICAO")
 	private String descricao;
 	
-//	@Column(name = "LOA_PROCESSADA", nullable = false)
+	@Column(name = "LOA_PROCESSADA")
 	private boolean processada;
 	
-//	@ManyToOne
-//	@JoinColumn(name="loc_id", nullable=false)
-	@Transient
+	@OneToOne(cascade = CascadeType.DETACH) 
+	@JoinColumn(name = "LOC_ID")
 	private Locatario locatario;
 	
-//	@OneToMany(mappedBy="locacao")
-	@Transient
+	@ManyToMany(cascade = CascadeType.DETACH)
 	private List<Produto> produtos;
 	
-	public Locacao() {
-		inicio = LocalDateTime.now();
-		fim = LocalDateTime.now().plusDays(3);
-		processada = false;
-	}
-	
-	public Locacao(Locatario locatario) {
-		this();
-		this.locatario = locatario;
-	}
-
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
-	public LocalDateTime getInicio() {
-		return inicio;
-	}
-
-	public void setInicio(LocalDateTime inicio) {
-		this.inicio = inicio;
-	}
-
-	public LocalDateTime getFim() {
-		return fim;
-	}
-
-	public void setFim(LocalDateTime fim) {
-		this.fim = fim;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
-
-	public boolean isProcessada() {
-		return processada;
-	}
-
-	public void setProcessada(boolean processada) {
-		this.processada = processada;
-	}
-
-	public Locatario getLocatario() {
-		return locatario;
-	}
-
-	public void setLocatario(Locatario locatario) {
-		this.locatario = locatario;
-	}
-
-	public List<Produto> getProdutos() {
-		return produtos;
-	}
-
-	public void setProdutos(List<Produto> produtos) {
-		this.produtos = produtos;
-	}
-
-	@Override
-	public String toString() {
-		return descricao + ";" + inicio + ";" + fim + ";" +  processada + ";" + locatario + ";" + produtos.size();
-	}
+	@ManyToOne
+	@JoinColumn(name = "LOA_ID_USU")
+	private Usuario usuario;
 }

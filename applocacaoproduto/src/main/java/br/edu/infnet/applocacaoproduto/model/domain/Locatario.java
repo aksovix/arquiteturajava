@@ -9,7 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "TB_LOCATARIO")
 public class Locatario {
@@ -31,7 +35,6 @@ public class Locatario {
 	@ManyToOne
 	@JoinColumn(name = "LOC_ID_USU")
 	private Usuario usuario;
-	
 
 	public Integer getId() {
 		return id;

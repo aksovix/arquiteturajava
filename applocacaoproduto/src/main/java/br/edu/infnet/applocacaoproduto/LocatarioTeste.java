@@ -10,7 +10,7 @@ import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
 import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.service.LocatarioService;
 
-@Order(3)
+@Order(2)
 @Component
 public class LocatarioTeste implements ApplicationRunner {
 	
@@ -19,7 +19,6 @@ public class LocatarioTeste implements ApplicationRunner {
 
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
-		
 		System.out.println("## Cadastramento de Locatário ##");
 		
 		Usuario usuario = new Usuario();

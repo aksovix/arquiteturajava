@@ -7,6 +7,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Computador;
+import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.service.ComputadorService;
 
 @Order(7)
@@ -21,6 +22,9 @@ public class ComputadorTeste implements ApplicationRunner {
 		
 		System.out.println("## Cadastramento de Computador ##");
 		
+		Usuario usuario = new Usuario();
+		usuario.setId(1);
+		
 		// Dell Notebook Inspiron 15
 		Computador c1 = new Computador();
 		c1.setCodigo(300);
@@ -30,6 +34,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		c1.setMemoria(16);
 		c1.setCpu(4.5f);
 		c1.setDisco(256);
+		c1.setUsuario(usuario);
 		service.incluir(c1);
 		
 		// Itautec I5 3470 3ªgeração 120gbssd 16gb 3.20ghz
@@ -41,6 +46,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		c2.setMemoria(16);
 		c2.setCpu(3.2f);
 		c2.setDisco(120);
+		c2.setUsuario(usuario);
 		service.incluir(c2);
 		
 		// ProDesk HP 400 G6 Mini
@@ -52,6 +58,7 @@ public class ComputadorTeste implements ApplicationRunner {
 		c3.setMemoria(8);
 		c3.setCpu(2.0f);
 		c3.setDisco(256);
+		c3.setUsuario(usuario);
 		service.incluir(c3);
 	}
 }

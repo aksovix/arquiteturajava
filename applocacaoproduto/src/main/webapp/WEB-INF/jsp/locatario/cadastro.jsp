@@ -4,13 +4,23 @@
 <html>
 <head>
 	<meta charset="ISO-8859-1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 	<title>Cadastramento de Locatário</title>
 </head>
 <body>
 	<c:import url="/WEB-INF/jsp/menu.jsp"/>
 
 	<div class="container mt-3">
+	
+	<form action="/cep" class="form-inline" method="post">
+	
+	    <div class="form-group">
+	      <label>CEP:</label>
+	      <input type="text" class="form-control" placeholder="Entre com o seu CEP" name="cep">
+	    </div>
+
+	    <button type="submit" class="btn btn-default">Buscar</button>
+	</form>
 
 	<h2>Locatário</h2>
 	  <form action="/locatario/incluir" method="post">
@@ -27,6 +37,8 @@
 	      <input type="text" class="form-control" placeholder="Entre com o seu CPF" name="cpf">
 	    </div>
 
+		<c:import url="/WEB-INF/jsp/endereco.jsp"/>
+	    
 	    <button type="submit" class="btn btn-default">Cadastrar</button>
 	  </form>
   

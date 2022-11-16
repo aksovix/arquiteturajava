@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
@@ -27,6 +28,14 @@ public class LocatarioController {
 	
 	@GetMapping(value = "/locatario")
 	public String telaCadastro() {
+		return "locatario/cadastro";
+	}
+	
+	@PostMapping(value = "/cep")
+	public String obterCep(Model model, @RequestParam String cep){
+		
+		model.addAttribute("endereco", service.obterEndereco(cep));
+		
 		return "locatario/cadastro";
 	}
 

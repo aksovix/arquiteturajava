@@ -11,6 +11,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
 @Entity
 @Table(name = "TB_USUARIO")
 public class Usuario {
@@ -32,50 +37,12 @@ public class Usuario {
 	@OneToMany
 	@JoinColumn(name = "LOC_ID_USU")
 	private List<Locatario> locatarios;
-
 	
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
-	}
-
-	public List<Locatario> getLocatarios() {
-		return locatarios;
-	}
-
-	public void setLocatarios(List<Locatario> locatarios) {
-		this.locatarios = locatarios;
-	}
+	@OneToMany
+	@JoinColumn(name = "LOA_ID_USU")
+	private List<Locacao> locacoes;
 	
-	@Override
-	public String toString() {
-		return id + ";" + nome + ";" + email + ";" + senha;
-	}
+	@OneToMany
+	@JoinColumn(name = "PRO_ID_USU")
+	private List<Produto> produtos;
 }

@@ -6,12 +6,18 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.edu.infnet.applocacaoproduto.clients.CepClient;
+import br.edu.infnet.applocacaoproduto.model.domain.Endereco;
 import br.edu.infnet.applocacaoproduto.model.domain.Locatario;
+import br.edu.infnet.applocacaoproduto.model.domain.Usuario;
 import br.edu.infnet.applocacaoproduto.model.repository.LocatarioRepository;
 
 @Service
 public class LocatarioService {
 
+	@Autowired
+	private CepClient cepClient;
+	
 	@Autowired
 	private LocatarioRepository locatarioRepository;
 	
@@ -29,5 +35,13 @@ public class LocatarioService {
 	
 	public Optional<Locatario> obterPorId(Integer id) {
 		return locatarioRepository.findById(id);
+	}
+	
+	public Endereco obterEndereco(String cep) {
+		return cepClient.obterEndereco(cep);
+	}
+	
+	public Collection<Locatario> obterLista(Usuario usuario){
+		return (Collection<Locatario>) locatarioRepository.obterLista(usuario.getId());
 	}
 }
